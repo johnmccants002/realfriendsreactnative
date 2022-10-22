@@ -18,7 +18,7 @@ export const rootReducer = combineReducers({
 
 export const store = configureStore({
     reducer: {
-        users: usersSlice.reducer,
+        // users: usersSlice.reducer,
     },
     enhancers: getDefaultEnhancers => getDefaultEnhancers.concat(),
     middleware(getDefaultMiddlewares) {

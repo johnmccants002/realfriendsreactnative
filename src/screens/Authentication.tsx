@@ -1,14 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {TextInput, View, Text, StyleSheet, Button, Pressable} from 'react-native'
 import window from '../../constants/Layout'
 import { useNavigation } from '@react-navigation/native';
+import { Input } from "@rneui/themed";
 
 const Authentication = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('')
 
     const navigation = useNavigation();
 
-    function forgotPassword() {
+    const forgotPassword = () => {
         console.log("Forgot Password")
+    }
+
+    const signIn = () => {
+        console.log("Sign in pressed")
+
     }
 
     return (
@@ -19,14 +27,18 @@ const Authentication = () => {
             </Text>
 
             </View>
-            
-
-            <TextInput
-            style={styles.input} placeholder={"Enter Email"}
-            ></TextInput>
-            <TextInput
-            style={styles.input} placeholder={"Enter Password"}
-            ></TextInput>
+            <Input
+            placeholder="Email"
+            autoFocus
+            value={email}
+            onChangeText={(text) => setEmail(text)}
+            />
+            <Input
+            placeholder="Password"
+            autoFocus
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            />
             <View style={styles.button}>
             <Button
 
@@ -48,7 +60,7 @@ const Authentication = () => {
             </View>
 
 
-        <Pressable onPress={() => navigation.navigate('Register')}>
+        <Pressable onPress={() => navigation.navigate('Register' as never, {} as never)}>
             <Text>Don't Have an Account? Sign Up </Text>
 
         </Pressable>

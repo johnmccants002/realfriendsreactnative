@@ -29,6 +29,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Navigation from './src/navigation'
+import { store } from './src/store/store'
 
 
 const App = () => {
